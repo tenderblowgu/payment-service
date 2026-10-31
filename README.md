@@ -1,2 +1,7 @@
 # payment-service
-Stripe payment processing microservice
+
+Stripe payment microservice.
+
+## Setup
+
+npm install
