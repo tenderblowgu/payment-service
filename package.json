@@ -3,7 +3,18 @@
   "version": "1.0.0",
   "description": "Stripe payment microservice",
   "main": "src/index.js",
-  "scripts": { "start": "node src/index.js", "dev": "nodemon src/index.js", "test": "jest" },
-  "dependencies": { "express": "^4.18.2", "stripe": "^14.21.0", "dotenv": "^16.3.1" },
-  "devDependencies": { "jest": "^29.7.0", "nodemon": "^3.0.1" }
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest; node scripts/setup.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "stripe": "^14.21.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1"
+  }
 }
